@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <title>ELECTION</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" type="text/css" href="style/table_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Work+Sans:wght@100;400&display=swap" rel="stylesheet">
+  <!-- include source files here... -->
+  <script src="src/Election.js"></script>
+  <script src="src/Controller.js"></script>
+  <script src="src/View.js"></script>
+  <script src="src/Party.js"></script>
+  <script src="src/Electorate.js"></script>
+  <script src="src/Candidate.js"></script>
+  <script src="src/electorateJSON.js"></script>
+  <!--Chart JS script file-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <script>
+            function addPieChart (canvasElement, dataArray, colorArray, labelsArray) {
+            let data = {
+                datasets: [{
+                data: dataArray,
+                backgroundColor: colorArray,
+                }],
+                labels: labelsArray
+            }
+
+            let options = Chart.defaults.pie
+
+            var ctx = canvasElement.getContext('2d');
+
+            var pieVoteChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: options
+            })
+            }
+        </script>
+        <script>
+        var theElection
+                    function main () {
+                    theElection = Controller.setup(electorateJSON)
+                    print(theElection.toTable())
+                    let partyData = theElection.getPartyVoteData()
+                    addPieChart(document.getElementById('partyVoteChart'), partyData[0], partyData[1], partyData[2])
+                    console.log(theElection)
+                    }
+                    window.onload = main
+        </script>
+    </div>
+        <div id="divTitle"></div>
+        <br>
+        
+        <div id="divDisplayParty"></div>
+        <br>
+        <div id="divPartyVoteChart" style="max-height: 500px; max-width: 500px">
+            <canvas id="partyVoteChart"></canvas>
+            <br>
+        </div>
+</body>
+</html>
+

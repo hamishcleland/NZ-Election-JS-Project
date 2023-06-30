@@ -1,0 +1,44 @@
+table {
+    border : black solid 1px;
+	margin-left: auto;
+    margin-right: auto;
+	font-family:"Fira Sans", sans-serif;
+}
+
+div {
+    max-width:968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+	border : black solid 1px;
+	padding:3rem;
+}
+
+td {
+	padding:2rem;
+	border : black solid 1px;
+    border-collapse : collapse;
+	margin-left: auto;
+    margin-right: auto;
+	font-family:"Fira Sans", sans-serif;
+}
+
+.election_header {
+	background-color:orange;
+	font-size:3rem;
+}
+
+.axis_title {
+	background-color:#DCDCDC;
+	text-align: left;
+	font-size:2.5rem;
+	font-weight: bold;
+}
+
+.party_rows, .electorate_rows {
+	font-size:2rem;
+	padding:3rem;
+}
+
